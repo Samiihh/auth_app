@@ -1,3 +1,5 @@
+import 'package:auth_app/screen/cadastro_screen.dart';
+import 'package:auth_app/screen/home_screen.dart';
 import 'package:auth_app/widgets/auth_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -48,6 +50,33 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: _senhaController,
               label: 'Senha',
               obscureText: true,
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton(
+              onPressed: _mostrarAviso,
+              child: const Text('Entrar'),
+            ),
+
+            TextButton(
+              onPressed: () {
+                // push empilhar uma nova tela sobre a atual
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const CadastroScreen()),
+                );
+              },
+              child: const Text('Criar conta'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const HomeScreen()),
+                );
+              },
+              child: const Text('Visualizar Home (protótipo)'),
             ),
           ],
         ),
